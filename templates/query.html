@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HOME{% endblock title %}</title>
+    <style >
+        .card1{
+          color: red;
+        }
+        h1{
+          font-family: sans-serif;
+        }
+       
+    </style>
+</head>
+<body>
+  
+    {% block body %}
+    <h1>Search</h1>
+    
+    <p>your search query is : <b>{{query1}}</b>
+    {% comment %} {% if query1 == results %} {% endcomment %}
+{% for element in results %}
+      <div class="card">
+  <div class="card-header">
+    search results : 
+  </div>
+  
+  <div class="card-body">
+    <h5 class="card-title text-danger">Title : {{element.name}}</h5>
+    <h6 class="card-title text-warning">Title : {{element.subtitle}}</h6>
+    <br>
+    <p class="card-text">Description : {{element.desc}}</p>
+    <p class="card-text text-success"><b>Date :</b> {{element.date}}</p>
+    
+  </div>
+</div>
+  {% endfor %}
+  {% comment %} {% else %}
+  <p>Your search - <b>{{query1}}</b> - did not match any documents.
+Suggestions:
+<ul>
+<li>Make sure that all words are spelled correctly.</li>
+<li>Try different keywords.</li>
+<li>Try more general keywords.</li> 
+</ul>
+</p>
+  {% endif %} {% endcomment %}
+    {% endblock body %}
+    
+</body>
+</html>

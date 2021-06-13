@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}signup{% endblock title %}</title>
+</head>
+<body>
+{% block body %}
+    <form action="Signup" method="POST">
+    {% csrf_token %}
+  <div class="mb-3" >
+    <label for="fname" class="form-label">First name</label>
+    <input type="text" class="form-control" id="fname" name="fname" >
+  </div>
+  <div class="mb-3" >
+    <label for="lname" class="form-label">last name</label>
+    <input type="text" class="form-control" id="lname" name="lname" >
+  </div>
+  <div class="mb-3" >
+    <label for="username" class="form-label">username</label>
+    <input type="text" class="form-control" id="username" name="username" >
+  </div>
+  <div class="mb-3" >
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="email" name="email" >
+  </div>
+  <div class="mb-3">
+    <label for="pass1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="pass1" name="pass1">
+  </div>
+  <div class="mb-3">
+    <label for="pass2" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" id="pass2" name="pass2">
+  <button type="submit" class="btn btn-primary my-3 mx-5">Submit</button>
+  
+</form>
+{% endblock body %}
+    
+</body>
+</html>

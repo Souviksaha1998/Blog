@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}HOME{% endblock title %}</title>
+    <style >
+        .card1{
+          color: red;
+        }
+        h1{
+          font-family: sans-serif;
+        }
+       
+    </style>
+</head>
+<body>
+  
+    {% block body %}
+    <h1>fullBlogs</h1>
+    <div class = "card1"> 
+    {% for blog2 in blog1 %}  
+    
+   <div class="card">
+  
+  <div class="card-body">
+    <h5 class="card-title text-danger">{{blog2.name}}</h5>
+    <h6 class="card-text text-warning">{{blog2.subtitle}}</h6>
+    <p class="card-text">{{blog2.desc}}</p>
+    
+    <br>
+  </div>
+</div>
+</div>
+
+
+    {% endfor %}
+  </div> 
+    {% endblock body %}
+    
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}blog post{% endblock title %}</title>
+    
+</head>
+<body>
+{% block body %}
+    <div class="form">
+    <form action="blog" method="POST">
+    {% csrf_token %}
+  <div class="mb-3" >
+    <label for="name" class="form-label">Blog Name</label>
+    <input type="text" class="form-control" id="name" name="name" >
+  </div>
+  <div class="mb-3">
+    <label for="name2" class="form-label">Blog Subtitle</label>
+    <input type="text" class="form-control" id="name2" name="name2" >
+  </div>
+  <div class="mb-3">
+    <label for="text" class="form-label">Description</label>
+    <textarea type="text" class="form-control" id="text" name="text" cols="15" rows="8"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="date" class="form-label">Date</label>
+    <input type="datetime-local" class="form-control" id="date" name="date">
+  </div>
+  
+  <button type="submit" class="btn btn-info">Submit</button>
+</form>
+
+</div>
+{% endblock body %}
+    
+</body>
+</html>
