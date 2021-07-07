@@ -10,6 +10,9 @@ from post.models import Blog
 from django.db.models import Q
 from django.contrib import messages
 
+
+# from django.core.mail import send_mail
+
 # Create your views here.
 def home(request):
     post = Blog.objects.all()
@@ -51,8 +54,9 @@ def sign(request):
             return redirect('signup')
         
         else:
-            user = User.objects.create_user(username=username , email=email , password=pass1)
-            user.first_name =fname
+            user = User.objects.create_user(username= username , email=email , password=pass1)
+            print(username)
+            user.first_name = fname
             user.last_name =lname
             user.save()
             messages.success(request, 'Successfully signed up')
@@ -113,3 +117,5 @@ def blogfull(request , posts):
         return redirect(request , 'signup')
         
     # return render( request , 'blogfull.html' , context)
+
+

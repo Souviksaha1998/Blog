@@ -13,4 +13,5 @@ urlpatterns = [
     path('blogfull/<int:posts>', views.blogfull , name='blogfull'),
     
     
+    
 ]
